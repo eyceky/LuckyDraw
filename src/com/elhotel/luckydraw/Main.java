@@ -78,8 +78,9 @@ public class Main {
 
 		try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(listFile)))) {
 			String line = null;
-			int lineCount = 0;
-			reader.mark(8192);
+			int lineCount = 0; // 文件行数，一行代表一个名单
+			reader.mark((int) (listFile.length() + 1));
+			// 遍历文件行数
 			while (reader.readLine() != null) {
 				lineCount++;
 			}
